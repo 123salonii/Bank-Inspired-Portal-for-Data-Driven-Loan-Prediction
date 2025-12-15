@@ -161,6 +161,8 @@ Evaluation Metrics: Accuracy and confusion matrix analysis
 ### 📢 Bank Announcements Page
 <img width="1920" height="1080" alt="Screenshot (168)" src="https://github.com/user-attachments/assets/0fd2d916-faee-45e2-8122-f2026f048934" />
 
+### 📞 Contact / Support Page
+<img width="1920" height="1080" alt="Screenshot (169)" src="https://github.com/user-attachments/assets/069d75a2-cd45-4ace-9d53-dacbb46af378" />
 
 ⚠️ Disclaimer
 
