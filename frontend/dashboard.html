@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Data-Driven Loan Approval System with a Bank-Inspired Portal</title>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    <nav class="bg-blue-950 text-white p-4 flex justify-between items-center shadow-md">
+        <div class="flex items-center gap-3">
+            <!-- Optional: Add logo -->
+            <div class="bg-white rounded-full w-10 h-10 flex items-center justify-center">
+                <span class="text-blue-900 font-bold">S</span>
+            </div>
+            <h1 class="text-xl font-bold tracking-wide">SBI-Inspired Bank Portal</h1>
+        </div>
+        <a href="/" class="hover:text-gray-300 font-semibold">Logout</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow p-8">
+        <h2 class="text-3xl font-bold mb-8 text-gray-800">Welcome to Your Bank Dashboard 👋</h2>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- Loan Prediction Card -->
+            <a href="/frontend/predict.html"
+                class="bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transform transition-all p-6 flex flex-col items-start gap-3">
+                <div class="bg-blue-100 text-blue-800 p-3 rounded-lg text-2xl">
+                    💰
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">Check Loan Eligibility</h3>
+                <p class="text-gray-600 text-sm">Instantly know whether you are eligible for a loan.</p>
+            </a>
+
+            <!-- Bank Status Card -->
+            <a href="/frontend/status.html"
+                class="bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transform transition-all p-6 flex flex-col items-start gap-3">
+                <div class="bg-green-100 text-green-800 p-3 rounded-lg text-2xl">
+                    🏦
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">My Bank Status</h3>
+                <p class="text-gray-600 text-sm">View your account and loan application status.</p>
+            </a>
+
+            <!-- Bank News Card -->
+            <a href="/frontend/news.html"
+                class="bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transform transition-all p-6 flex flex-col items-start gap-3">
+                <div class="bg-yellow-100 text-yellow-800 p-3 rounded-lg text-2xl">
+                    📰
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">Bank News & Announcements</h3>
+                <p class="text-gray-600 text-sm">Latest SBI-style updates and notices.</p>
+            </a>
+
+            <!-- Support Card -->
+            <a href="/frontend/contact.html"
+                class="bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transform transition-all p-6 flex flex-col items-start gap-3">
+                <div class="bg-red-100 text-red-800 p-3 rounded-lg text-2xl">
+                    📞
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">Help & Support</h3>
+                <p class="text-gray-600 text-sm">Contact customer support for assistance.</p>
+            </a>
+
+        </section>
+    </main>
+
+    <!-- OPTIONAL FOOTER -->
+    <footer class="bg-gray-50 p-4 text-center text-gray-500 text-sm shadow-inner">
+        &copy; 2025 SBI-Inspired Bank Portal. All rights reserved.
+    </footer>
+
+</body>
+
+</html>

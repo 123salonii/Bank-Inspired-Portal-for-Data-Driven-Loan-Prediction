@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Loan Eligibility - SBI Inspired Bank</title>
+    <link rel="stylesheet" href="/frontend/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    <nav class="bg-blue-950 text-white p-4 flex justify-between items-center shadow-md">
+        <div class="flex items-center gap-3">
+            <!-- Optional: Add logo -->
+            <div class="bg-white rounded-full w-10 h-10 flex items-center justify-center">
+                <span class="text-blue-900 font-bold">S</span>
+            </div>
+            <h1 class="text-xl font-bold tracking-wide">SBI-Inspired Bank Portal</h1>
+        </div>
+        <a href="/" class="hover:text-gray-300 font-semibold">Logout</a>
+    </nav>
+
+
+    <!-- CONTAINER -->
+    <main class="flex-grow flex justify-center items-start p-6">
+        <div class="w-full max-w-2xl bg-white shadow-xl rounded-2xl p-8 mt-10">
+
+            <h2 class="text-2xl font-bold text-blue-800 mb-3">Check Loan Eligibility</h2>
+            <p class="text-gray-600 mb-6">
+                Enter your details below to check your loan eligibility instantly.
+            </p>
+
+            <form id="predictForm" class="space-y-5">
+
+                <!-- Applicant Income -->
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Monthly Income (₹)</label>
+                    <input type="number" id="x1" required
+                        class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-400"
+                        placeholder="Enter your monthly income">
+                </div>
+
+                <!-- Education -->
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Education Qualification</label>
+                    <select id="x2" required class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-400">
+                        <option value="" disabled selected>Select education</option>
+                        <option value="1">Graduate</option>
+                        <option value="0">Not Graduate</option>
+                    </select>
+                </div>
+
+                <!-- Loan Amount -->
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Loan Amount Required (₹)</label>
+                    <input type="number" id="x3" required
+                        class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-400"
+                        placeholder="Enter required loan amount">
+                </div>
+
+                <!-- Credit History -->
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Credit History</label>
+                    <select id="x4" required class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-400">
+                        <option value="" disabled selected>Select credit history</option>
+                        <option value="1">Good (Previous loans cleared)</option>
+                        <option value="0">Poor / No credit history</option>
+                    </select>
+                </div>
+
+                <!-- Property Area -->
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Property Area</label>
+                    <select id="x5" required class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-400">
+                        <option value="" disabled selected>Select area</option>
+                        <option value="2">Urban</option>
+                        <option value="1">Semi-Urban</option>
+                        <option value="0">Rural</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-blue-700 text-white py-3 rounded-xl hover:bg-blue-800 transition font-semibold">
+                    Check Eligibility
+                </button>
+
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="mt-6 p-4 rounded-xl text-center font-semibold hidden shadow transition-all">
+            </div>
+
+            <!-- Disclaimer -->
+            <p class="text-sm text-gray-500 mt-4 text-center">
+                ℹ This is an AI-based loan eligibility prediction for demonstration purposes.
+                Final loan approval depends on bank verification and policies.
+            </p>
+
+        </div>
+    </main>
+
+    <!-- SCRIPT -->
+    <script>
+        const form = document.getElementById("predictForm");
+        const resultBox = document.getElementById("resultBox");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // Reset result box
+            resultBox.textContent = "";
+            resultBox.className = "hidden p-4 rounded-xl text-center font-semibold shadow transition-all";
+
+            const payload = {
+                x1: parseFloat(document.getElementById("x1").value),
+                x2: parseFloat(document.getElementById("x2").value),
+                x3: parseFloat(document.getElementById("x3").value),
+                x4: parseFloat(document.getElementById("x4").value),
+                x5: parseFloat(document.getElementById("x5").value),
+            };
+
+            try {
+                const response = await fetch("http://127.0.0.1:8000/predict/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!response.ok) throw new Error("Network response was not ok");
+
+                const data = await response.json();
+
+                // Show result
+                resultBox.classList.remove("hidden");
+
+                if (data.prediction === 1) {
+                    resultBox.classList.add("bg-green-100", "text-green-800");
+                    resultBox.textContent = "✅ Congratulations! You are eligible for the loan.";
+                } else {
+                    resultBox.classList.add("bg-red-100", "text-red-800");
+                    resultBox.textContent = "❌ Based on the details provided, you are not eligible for the loan.";
+                }
+
+            } catch (error) {
+                resultBox.classList.remove("hidden");
+                resultBox.classList.add("bg-red-200", "text-red-900");
+                resultBox.textContent = "⚠ Unable to connect to the server. Please try again later.";
+                console.error(error);
+            }
+        });
+    </script>
+    <!-- OPTIONAL FOOTER -->
+    <footer class="bg-gray-50 p-4 text-center text-gray-500 text-sm shadow-inner">
+        &copy; 2025 SBI-Inspired Bank Portal. All rights reserved.
+    </footer>
+</body>
+
+</html>

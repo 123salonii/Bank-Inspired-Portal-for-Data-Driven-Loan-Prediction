@@ -1,0 +1,57 @@
+/* Global font & background settings */
+/* Background Image */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+}
+/* White overlay for readability */
+.page-overlay {
+    background: rgba(255, 255, 255, 0.8);
+    min-height: 100vh;
+}
+
+
+/* Navbar styling */
+nav {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Page container */
+.page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Table styling */
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+table thead {
+    background-color: #4f46e5;
+    color: white;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #4f46e5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #4338ca;
+}
+.active-link {
+    font-weight: 700;
+    text-decoration: underline;
+}

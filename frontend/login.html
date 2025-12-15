@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/frontend/css/style.css">
+
+    <title>Data-Driven Loan Approval System with a Bank-Inspired Portal- Login</title>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+    <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-md">
+
+        <h2 class="text-3xl font-bold text-center text-blue-800 mb-2">
+            SBI-Inspired Bank Portal
+        </h2>
+
+        <p class="text-center text-gray-500 mb-6 text-sm">
+            Customer Login (Demo)
+        </p>
+
+        <form id="loginForm" class="space-y-6">
+
+            <div>
+                <label class="block text-sm font-semibold">Username</label>
+                <input type="text" id="username" required class="w-full border p-2 rounded-md"
+                    placeholder="Enter your username">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold">Password</label>
+                <input type="password" id="password" required class="w-full border p-2 rounded-md"
+                    placeholder="Enter your password">
+            </div>
+
+            <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800 transition">
+                Login
+            </button>
+        </form>
+
+        <p id="error" class="text-red-600 text-center mt-4 hidden">
+            Invalid login credentials!
+        </p>
+
+        <!-- DEMO INFO -->
+        <!-- <p class="text-xs text-gray-500 text-center mt-6">
+            ℹ Demo Login: <strong>username:</strong>customer &nbsp;
+            <strong>password:</strong> 1234
+        </p> -->
+
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // prevent page reload
+
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+
+            // Demo check
+            if (user === "customer" && pass === "1234") {
+                // Redirect to dashboard
+                window.location.href = "/frontend/dashboard.html";
+            } else {
+                // Show error
+                document.getElementById("error").classList.remove("hidden");
+            }
+        });
+    </script>
+</body>
+
+</html>
