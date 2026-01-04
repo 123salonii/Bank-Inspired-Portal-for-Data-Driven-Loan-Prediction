@@ -1,4 +1,4 @@
-🏦 Bank-Inspired Portal for Data-Driven Loan Prediction
+#🏦 Bank-Inspired Portal for Data-Driven Loan Prediction
 📌 Project Overview
 
 This project is a bank-inspired, data-driven loan prediction system developed as part of an Industry Internship at JCE Innovation & Entrepreneurship Foundation (JIEF), Belagavi. The system uses Machine Learning to analyze loan applicant details and predict the likelihood of loan approval.
